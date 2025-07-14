@@ -55,11 +55,11 @@
       var loaderUrl = buildUrl + "/build-temp.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/build-temp.data",
-        frameworkUrl: buildUrl + "/build-temp.framework.js",
-        codeUrl: buildUrl + "/build-temp.wasm",
+        dataUrl: buildUrl + "/build-temp.data.br",
+        frameworkUrl: buildUrl + "/build-temp.framework.js.br",
+        codeUrl: buildUrl + "/build-temp.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "TheIdleMind",
+        companyName: "DefaultCompany",
         productName: "TIM_DynamicPortfolio",
         productVersion: "0.1.0",
         showBanner: unityShowBanner,
@@ -98,8 +98,8 @@
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "1280px";
+        canvas.style.height = "720px";
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
@@ -110,10 +110,14 @@
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
+                  document.querySelector("#unity-loading-bar").style.display = "none";
+                  document.onclick = () => {
+                      unityInstance.SetFullscreen(1);
+                  }
+                //document.querySelector("#unity-fullscreen-button").onclick = () => {
+                //    unityInstance.SetFullscreen(1);
+                    
+                //};
 
               }).catch((message) => {
                 alert(message);
