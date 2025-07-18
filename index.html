@@ -112,12 +112,22 @@
 
       document.querySelector("#unity-loading-bar").style.display = "block";
 
+      //Instance holding variable
+      var timInstance = null; 
+
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
+        }).then((unityInstance) => {
+
+            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+            {
+                timInstance = unityInstance;
+                timInstance.SendMessage("Systems", "DetectMobile", 1);
+            }
+
                 document.querySelector("#unity-loading-bar").style.display = "none";
                 document.querySelector("#unity-fullscreen-button").onclick = () => {
                   unityInstance.SetFullscreen(1);
