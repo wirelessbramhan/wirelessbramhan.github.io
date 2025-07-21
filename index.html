@@ -52,12 +52,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/build-temp.loader.js";
+      var loaderUrl = buildUrl + "/wirelessbramhan.github.io.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/build-temp.data",
-        frameworkUrl: buildUrl + "/build-temp.framework.js",
-        codeUrl: buildUrl + "/build-temp.wasm",
+        dataUrl: buildUrl + "/wirelessbramhan.github.io.data",
+        frameworkUrl: buildUrl + "/wirelessbramhan.github.io.framework.js",
+        codeUrl: buildUrl + "/wirelessbramhan.github.io.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "TheIdleMind",
         productName: "TIM_DynamicPortfolio",
@@ -81,7 +81,6 @@
       // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
       // expected to change.
 
-      
         // Mobile device style: fill the whole browser client area with the game canvas:
 
         var meta = document.createElement('meta');
@@ -97,19 +96,16 @@
 
       document.querySelector("#unity-loading-bar").style.display = "block";
 
-        var script = document.createElement("script");
-        var timInstance = null;
+      var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                  document.querySelector("#unity-loading-bar").style.display = "none";
-                  timInstance = unityInstance;
-
-                  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-                      timInstance.SendMessage("Systems", "DetectMobile");
-                  }
+                document.querySelector("#unity-loading-bar").style.display = "none";
+                //document.querySelector("#unity-fullscreen-button").onclick = () => {
+                //  unityInstance.SetFullscreen(1);
+                //};
 
               }).catch((message) => {
                 alert(message);
