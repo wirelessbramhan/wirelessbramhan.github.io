@@ -770,6 +770,41 @@ input, select, textarea {
 				background-image: url("images/arrow.svg");
 			}
 
+			/* style3 */
+			input[type="button"].style3,
+            		input[type="submit"].style3,
+            		input[type="reset"].style3,
+            		.button.style3,
+            		button.style3 {
+            			background-color: rgba(196, 255, 242, 0.3);
+            			border: solid 2px #015946;
+            			color: inherit;
+            		}
+
+            			input[type="button"].style3:hover,
+            			input[type="submit"].style3:hover,
+            			input[type="reset"].style3:hover,
+            			.button.style3:hover,
+            			button.style3:hover {
+            				background-color: rgba(0, 131, 201, 0.25);
+            			}
+
+            			input[type="button"].style3:active,
+            			input[type="submit"].style3:active,
+            			input[type="reset"].style3:active,
+            			.button.style3:active,
+            			button.style3:active {
+            				background-color: rgba(0, 131, 201, 0.35);
+            			}
+
+            			/*input[type="button"].style3.down,
+            			input[type="submit"].style3.down,
+            			input[type="reset"].style3.down,
+            			.button.style3.down,
+            			button.style3.down {
+            				background-image: url("images/download-symbol.svg");
+            			}*/
+
 /* Form */
 
 	form {
